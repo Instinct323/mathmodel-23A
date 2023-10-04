@@ -140,7 +140,8 @@ class SolverBase:
         fitness = E_mean - np.maximum(E_tar - E_field, 0)
         return {'E_mean': E_mean, 'E_field': E_field, 'fitness': fitness} if verbose else fitness
 
-    def get_rotate(self, n):
+    @staticmethod
+    def get_rotate(n):
         # 求解定日镜的方位角、俯仰角
         dire = np.angle(complex(n))
         elev = np.arccos(n[..., -1])

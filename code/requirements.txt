@@ -1,0 +1,6 @@
+matplotlib
+numpy
+opencv-python
+optuna
+pandas
+tqdm
