@@ -3,4 +3,5 @@ numpy
 opencv-python
 optuna
 pandas
+sympy
 tqdm
