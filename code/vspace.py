@@ -254,10 +254,7 @@ class HeliostatField:
         if self.dist + r < R: return theta * 2
         # 吸收塔外径 r 处的圆不被包含, 即相切
         a = np.arccos((R ** 2 + self.dist ** 2 - r ** 2) / (2 * R * self.dist))
-        if self.xy.imag > 0:
-            theta += [a - np.pi, -a]
-        else:
-            theta += [a, np.pi - a]
+        theta += [a - np.pi, -a] if self.xy.imag > 0 else [a, np.pi - a]
         # 求出交点坐标与吸收塔的相位关系
         theta = np.angle(rect(R, theta) - self.xy)
         theta[0] -= (theta[0] > theta[1]) * np.pi * 2
